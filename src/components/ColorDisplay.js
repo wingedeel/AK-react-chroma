@@ -83,7 +83,7 @@ class ColorDisplay extends Component{
     return (
       <div>
       <button className='clickButton' onKeyPress={this.handleKeyPress} >Click to start</button>
-      <h4 className ='subheader'>Press Spacebar to change the colours</h4> 
+      <h4 className ='subheader'>Press Spacebar to change the colours.</h4> 
       <div className='container-fluid text-center ani-show'>
 
         <StaggeredMotion
