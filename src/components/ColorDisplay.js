@@ -9,20 +9,12 @@ class ColorDisplay extends Component{
       colors: [],
       colorElements: [],
       yOff: 0,
-       items: [
-        {text: 'j4q2q7lu'},
-        {text: 'j4q2q9rq'},
-        {text: 'j4q2qb7k'},
-        {text: 'j4q2q7lu'},
-        {text: 'j4q2q9rq'},
-        {text: 'j4q2qb7k'}
-      ],
       colors: [
-        {color: '#e7260d'},
-        {color: '#ac0000'},
-        {color: '#750000'},
-        {color: '#4d0000'},
-        {color: '#400000'}
+        {color: '#ffffff'},
+        {color: '#ffffff'},
+        {color: '#ffffff'},
+        {color: '#ffffff'},
+        {color: '#ffffff'}
       ]
     }
 
@@ -58,6 +50,7 @@ class ColorDisplay extends Component{
     }
     this.setState({colors: colorList});
     
+    /*
     // Create a new element for each color
     const elements = []
     for (var j = 0; j < colorList.length; j++) {
@@ -71,6 +64,7 @@ class ColorDisplay extends Component{
     
     // Update swatches in state
     this.setState({ colorElements: elements});
+    */
   }
 
 
@@ -88,9 +82,8 @@ class ColorDisplay extends Component{
 
     return (
       <div>
-      {this.state.colorElements}
-      <input type="text" id="one" onKeyPress={this.handleKeyPress} />
-
+      <button className='clickButton' onKeyPress={this.handleKeyPress} >Click to start</button>
+      <h4 className='subheader'>Press Spacebar to change the colours</h4> 
       <div className='container-fluid text-center ani-show'>
 
         <StaggeredMotion
@@ -111,9 +104,10 @@ class ColorDisplay extends Component{
                   style={
                     {
                       transform: 'translateY('+style.translateY+'px)',
-                      backgroundColor: items[i].color
+                      backgroundColor: items[i].color,
                     }
                   }>
+                  {items[i].color}
                 </div>
                
           ))}
