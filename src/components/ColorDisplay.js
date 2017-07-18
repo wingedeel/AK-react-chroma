@@ -1,10 +1,3 @@
-/*
-App contains:
-- button. when clicked it tells 
-- swatch maker to darken the current color
-- and display a new set of swatches.
-*/
-
 import React, { Component } from 'react';
 import {StaggeredMotion, Motion, spring, presets} from 'react-motion';
 
@@ -24,12 +17,12 @@ class ColorDisplay extends Component{
         {text: 'j4q2q9rq'},
         {text: 'j4q2qb7k'}
       ],
-      colors2: [
-        {text: '#e7260d'},
-        {text: '#ac0000'},
-        {text: '#750000'},
-        {text: '#4d0000'},
-        {text: '#400000'}
+      colors: [
+        {color: '#e7260d'},
+        {color: '#ac0000'},
+        {color: '#750000'},
+        {color: '#4d0000'},
+        {color: '#400000'}
       ]
     }
 
@@ -52,8 +45,7 @@ class ColorDisplay extends Component{
   }
 
   updateColors() {
-    console.log('updateColors'); 
-    // chroma.random();
+    
     //const chromaColor = chroma(this.state.color);
     const chromaColor = chroma.random();
     const steps = 5;
@@ -63,16 +55,13 @@ class ColorDisplay extends Component{
     for (var i = 0; i < steps; i++) {
         let color = chromaColor.darken(i).hex();
         colorList.push({color:color});
-        //colorList[i] = chromaColor.darken(i);
     }
     this.setState({colors: colorList});
-    console.log(colorList.toString())
-
+    
     // Create a new element for each color
     const elements = []
     for (var j = 0; j < colorList.length; j++) {
         const color = colorList[j].color;
-        console.log('color', color);
         const style = {backgroundColor: color };
         const key = color + Math.random(10);
         elements.push (
@@ -95,9 +84,7 @@ class ColorDisplay extends Component{
   
 
   render() {
-    //const items = this.state.colors;
-    //const items = this.state.items;
-    const items = this.state.colors2;
+    const items = this.state.colors;
 
     return (
       <div>
@@ -124,7 +111,7 @@ class ColorDisplay extends Component{
                   style={
                     {
                       transform: 'translateY('+style.translateY+'px)',
-                      backgroundColor: items[i].text
+                      backgroundColor: items[i].color
                     }
                   }>
                 </div>
@@ -142,17 +129,3 @@ class ColorDisplay extends Component{
 
 
 export default ColorDisplay;
-
-/*
- <div key={i}
-                  className='item2 col-6 col-sm-2'
-                  style={
-                    {
-                      transform: 'translateY('+style.translateY+'px)',
-                      backgroundColor: this.state.colors[i]
-                    }
-                  }>
-                </div>
-
-
-*/
