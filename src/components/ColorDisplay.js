@@ -38,7 +38,6 @@ class ColorDisplay extends Component{
 
   updateColors() {
     
-    //const chromaColor = chroma(this.state.color);
     const chromaColor = chroma.random();
     const steps = 5;
 
@@ -49,22 +48,6 @@ class ColorDisplay extends Component{
         colorList.push({color:color});
     }
     this.setState({colors: colorList});
-    
-    /*
-    // Create a new element for each color
-    const elements = []
-    for (var j = 0; j < colorList.length; j++) {
-        const color = colorList[j].color;
-        const style = {backgroundColor: color };
-        const key = color + Math.random(10);
-        elements.push (
-          <div key={key} style={style}>color</div>
-        )
-    }
-    
-    // Update swatches in state
-    this.setState({ colorElements: elements});
-    */
   }
 
 
@@ -76,15 +59,18 @@ class ColorDisplay extends Component{
     }
   }
   
+  componentDidMount(){
+    this.refs.dummyButton.focus();
+  }
 
   render() {
     const items = this.state.colors;
 
     return (
       <div>
-      <button className='clickButton' onKeyPress={this.handleKeyPress} >Click to start</button>
-      <h4 className ='subheader'>Press Spacebar to change the colours.</h4> 
-      <div className='container-fluid text-center ani-show'>
+      <button ref='dummyButton'className='dummyButton' onKeyPress={this.handleKeyPress} ></button>
+      <h2 className ='subheader'>Press the Spacebar to change the colours</h2> 
+      <div className='container-fluid text-center'>
 
         <StaggeredMotion
           // Set default style for each to 0
@@ -97,10 +83,10 @@ class ColorDisplay extends Component{
           })}
           >
           {interpolated =>
-            <div className='container-fluid row block-center'>
+            <div>
               {interpolated.map((style,i) => (
                  <div key={i}
-                  className='item2 col-6 col-sm-2'
+                  className='colorItem col-6 col-sm-2'
                   style={
                     {
                       transform: 'translateY('+style.translateY+'px)',

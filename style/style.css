@@ -1,57 +1,30 @@
 body {
-    background-color:   #faebd7;
-    font: normal 1rem sans-serif; 	
+  background-color:   #faebd7;
+  font: normal 1rem sans-serif; 	
 }
 
 .container {
 	width: 70%;
 	margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 40px;
 	text-align:center;
 }
 
 .app-root {
-  margin-top: 100px;
-}
-
-.clickButton {
-  background-color: #598aa0;
-  border: none;
-  color: #FCFFF5;
-  height: 40px;
-  padding: 0 30px;
-  transition: background-color 150ms ease-in-out; 
-}
-
-.clickButton:hover, .clickButton:focus {
-    background-color: #3E606F;
-    outline: none; 
+  margin-top: 80px;
 }
 
 .subheader {
-	margin: 30px;
+  margin: 30px;
 }
 
-.nav { padding: 10px; }
-.nav-item { margin: 0px 10px }
-.nav-link { transition: all 0.5s ease-out }
+.dummyButton {
+  opacity: 0;
+}
 
-.ani-show { animation: animate-in 1.5s }
-@keyframes animate-in {
-  from {opacity: 0}
-  to {opacity: 1}
-}
-.item {
-  transition: color 0.4s ease-out, background-color 0.4s ease-out;
-  height: 30px;
-}
-.item:hover {
-  background-color: rgba(95,95,255,0.95);
-  color: rgba(255,255,255,1);
-}
-.item2 {
+.colorItem {
   border-radius: 50%;
-  padding: 70px 50px;
+  padding: 50px 0px 50px 0px;
   margin: 10px;
   color: white;
 }
